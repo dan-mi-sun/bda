@@ -1,0 +1,173 @@
+Coursework 1
+
+1. Basic Statistics (1%)
+
+a)
+
+i) mean = 2 
+
+> siblings = c(2, 3, 0, 5, 2, 1, 1, 0, 3, 3)
+
+> mean(siblings)
+
+[1] 2
+
+ii) median = 2
+
+> median(siblings)
+
+[1] 2
+
+iii) mode = 3
+
+iv) variance = 2.444444
+
+> var(siblings)
+
+[1] 2.444444
+
+v) standard deviation = 1.563472
+
+> sd(siblings)
+
+[1] 1.563472
+
+b)
+
+i) covariance = 11.88889
+
+correlation = 0.9116971
+
+> age = c(23, 25, 18, 45, 30, 21, 22, 19, 29, 35)
+
+> cov(siblings, age)
+
+[1] 11.88889
+
+> cor(siblings, age)
+
+[1] 0.9116971
+
+Daniel Hassan 13012047
+
+ii) Strong Positive linear correlation. (a value of + 1 would indicate a perfect positive correlation).
+
+iii) I do not believe there is causation between the two. There will need to be other factors to take 
+
+into account such as, but not excluding; race, socio-economic background etc.
+
+That said reports such as this: http://www.oecd.org/els/soc/47701118.pdf do indicate that things 
+
+such as average family size has changed over the last 30 years, with changing social factors such as 
+
+work-life balance, poverty etc, so there may be some relation.
+
+This sample size is too small to draw any accurate conclusions.
+
+2. Getting familiar with R (2%)
+
+a) The Boston dataset has 14 columns and 506 rows. Columns represent data on variables and rows 
+
+represent regions in the Boston area.
+
+> library(MASS)
+
+> Boston
+
+> ?Boston
+
+b)
+
+> plot(Boston)
+
+pairs(Boston[1:14], pch = 21) this yields the same result as plot(Boston)
+
+Daniel Hassan 13012047
+
+c)
+
+> all_correlations = cor(Boston)
+
+> print ( all_correlations[,1])
+
+ crim zn indus chas nox rm age dis rad 
+
+  1.00000000 -0.20046922 0.40658341 -0.05589158 0.42097171 -0.21924670 0.35273425 -
+
+  0.37967009 0.62550515 
+
+   tax ptratio black lstat medv 
+
+    0.58276431 0.28994558 -0.38506394 0.45562148 -0.38830461
+
+    > sort ( all_correlations[,1])
+
+     medv black dis rm zn chas ptratio age indus 
+
+     -0.38830461 -0.38506394 -0.37967009 -0.21924670 -0.20046922 -0.05589158 0.28994558 
+
+     0.35273425 0.40658341 
+
+      nox lstat tax rad crim 
+
+       0.42097171 0.45562148 0.58276431 0.62550515 1.00000000
+
+       > all_data = lm(crim ~ ., data = Boston)
+
+       > summary(all_data)
+
+       Call:
+
+       lm(formula = crim ~ ., data = Boston)
+
+       Residuals:
+
+        Min 1Q Median 3Q Max 
+
+        -9.924 -2.120 -0.353 1.019 75.051 
+
+        Coefficients:
+
+         Estimate Std. Error t value Pr(>|t|) 
+
+         (Intercept) 17.033228 7.234903 2.354 0.018949 * 
+
+         zn 0.044855 0.018734 2.394 0.017025 * 
+
+         indus -0.063855 0.083407 -0.766 0.444294 
+
+         Daniel Hassan 13012047
+
+         chas -0.749134 1.180147 -0.635 0.525867 
+
+         nox -10.313535 5.275536 -1.955 0.051152 . 
+
+         rm 0.430131 0.612830 0.702 0.483089 
+
+         age 0.001452 0.017925 0.081 0.935488 
+
+         dis -0.987176 0.281817 -3.503 0.000502 ***
+
+         rad 0.588209 0.088049 6.680 6.46e-11 ***
+
+         tax -0.003780 0.005156 -0.733 0.463793 
+
+         ptratio -0.271081 0.186450 -1.454 0.146611 
+
+         black -0.007538 0.003673 -2.052 0.040702 * 
+
+         lstat 0.126211 0.075725 1.667 0.096208 . 
+
+         medv -0.198887 0.060516 -3.287 0.001087 ** 
+
+         ---
+
+         Signif. codes: 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+         Residual standard error: 6.439 on 492 degrees of freedom
+
+         Multiple R-squared: 0.454, Adjusted R-squared: 0.4396 
+
+         F-statistic: 31.47 on 13 and 492 DF, p-value: < 2.2e-16
+
+         d)
