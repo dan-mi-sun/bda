@@ -2,101 +2,101 @@ iCoursework 1
 
 1. Basic Statistics (1%)
 
-a)
+  a)
 
-i) mean = 2 
+  i) mean = 2 
 
 > siblings = c(2, 3, 0, 5, 2, 1, 1, 0, 3, 3)
 
 > mean(siblings)
 
-[1] 2
+  [1] 2
 
-ii) median = 2
+  ii) median = 2
 
 > median(siblings)
 
-[1] 2
+  [1] 2
 
-iii) mode = 3
+  iii) mode = 3
 
-iv) variance = 2.444444
+  iv) variance = 2.444444
 
 > var(siblings)
 
-[1] 2.444444
+  [1] 2.444444
 
-v) standard deviation = 1.563472
+  v) standard deviation = 1.563472
 
 > sd(siblings)
 
-[1] 1.563472
+  [1] 1.563472
 
-b)
+  b)
 
-i) covariance = 11.88889
+  i) covariance = 11.88889
 
-correlation = 0.9116971
+  correlation = 0.9116971
 
 > age = c(23, 25, 18, 45, 30, 21, 22, 19, 29, 35)
 
 > cov(siblings, age)
 
-[1] 11.88889
+  [1] 11.88889
 
 > cor(siblings, age)
 
-[1] 0.9116971
+  [1] 0.9116971
 
-Daniel Hassan 13012047
+  Daniel Hassan 13012047
 
-ii) Strong Positive linear correlation. (a value of + 1 would indicate a perfect positive correlation).
+  ii) Strong Positive linear correlation. (a value of + 1 would indicate a perfect positive correlation).
 
-iii) I do not believe there is causation between the two. There will need to be other factors to take 
+  iii) I do not believe there is causation between the two. There will need to be other factors to take 
 
-into account such as, but not excluding; race, socio-economic background etc.
+  into account such as, but not excluding; race, socio-economic background etc.
 
-That said reports such as this: http://www.oecd.org/els/soc/47701118.pdf do indicate that things 
+  That said reports such as this: http://www.oecd.org/els/soc/47701118.pdf do indicate that things 
 
-such as average family size has changed over the last 30 years, with changing social factors such as 
+  such as average family size has changed over the last 30 years, with changing social factors such as 
 
-work-life balance, poverty etc, so there may be some relation.
+  work-life balance, poverty etc, so there may be some relation.
 
-This sample size is too small to draw any accurate conclusions and just because two variables are 
+  This sample size is too small to draw any accurate conclusions and just because two variables are 
 
-highly correlated, does not mean that one variable is caused by the other.
+  highly correlated, does not mean that one variable is caused by the other.
 
 2. Getting familiar with R (2%)
 
-a) The Boston dataset has 14 columns and 506 rows. Columns represent data on variables and rows 
+  a) The Boston dataset has 14 columns and 506 rows. Columns represent data on variables and rows 
 
-represent regions/suburbs/neighbourhoods in the Boston area.
+  represent regions/suburbs/neighbourhoods in the Boston area.
 
 > library(MASS)
 
-> Boston
+  > Boston
 
-> ?Boston
+  > ?Boston
 
-b)
+  b)
 
 > pairs(Boston)
 
-Daniel Hassan 13012047
+  Daniel Hassan 13012047
 
-c)
+  c)
 
 > all_correlations = cor(Boston)
 
 > print ( all_correlations[,1])
 
- crim zn indus chas nox rm age dis rad 
+  crim zn indus chas nox rm age dis rad 
 
   1.00000000 -0.20046922 0.40658341 -0.05589158 0.42097171 -0.21924670 0.35273425 -
 
   0.37967009 0.62550515 
 
-   tax ptratio black lstat medv 
+  tax ptratio black lstat medv 
 
     0.58276431 0.28994558 -0.38506394 0.45562148 -0.38830461
 
